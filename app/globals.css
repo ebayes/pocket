@@ -90,10 +90,7 @@ a:hover {
   align-items: center;
 }
 
-.swiper {
-  width: 350px;
-  height: 350px;
-}
+
 
 .swiper-slide {
   display: flex;

@@ -25,7 +25,7 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
         effect={'cards'}
         grabCursor={true}
         modules={[EffectCards]}
-        className="mySwiper"
+        className="mySwiper w-[300px] sm:w-[350px]  h-[300px] sm:h-[350px]"
         onSlideChange={(swiper) => onSlideChange(data[swiper.activeIndex].title)}
         onSwiper={(swiper) => { swiperRef.current = swiper; }}
       >
@@ -33,7 +33,7 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
           <SwiperSlide key={index} style={{ border: `8px solid ${borderColor}`, borderRadius: '18px' }}>
             <div className="flex flex-col justify-center items-center h-full space-y-5 px-5">
               <Image src={slide.image} alt="Logo" width={100} height={100}/>
-              <p className="text-center" style={{fontWeight: '500'}}>{slide.text}</p>
+              <p className="text-center text-[16px]">{slide.text}</p>
             </div>
           </SwiperSlide>
         ))}
@@ -80,9 +80,9 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
     }, []); // Empty dependency array ensures this effect runs only once on mount
   
     return (
-        <div id="swiper" className="py-20">
+<div id="swiper" className="py-10 sm:py-20">
 
-          <div className="m-4 ">
+<div className="m-4 sm:m-0">
             
             <p className="swiper-slide text-center space-x-24" style={{fontWeight: 'bold', fontSize: '24px'}}>
             <Link href="/">

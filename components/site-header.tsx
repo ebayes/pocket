@@ -18,11 +18,14 @@ import { Text } from '@radix-ui/themes';
 
 export function SiteHeader() {
   return (
-    <header className="bg-background sticky top-0 z-40 w-full">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+    <header className="sticky top-0 z-40 w-full">
+      <div className="flex pl-5 pr-3 sm:pl-14 sm:pr-12 h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
 
       <Link href="/">
-        <Image src="/logo.png" alt="Logo" width={300} height={300}/>
+        <div className="flex gap-5">
+        <Image src="/favicon.svg" alt="Logo" width={40} height={50}/>
+        <Image className="hidden sm:block" src="/logo.png" alt="Logo" width={250} height={200}/>
+        </div>
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-5">

@@ -12,7 +12,7 @@ export default function IndexPage() {
   
   return (
     <section className="container items-center">
-      <div className="grid grid-cols-3 gap-10 py-10">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-10 py-10">
         {decks.map((deck, index) => (
           <div key={index}>
             <Deck text={deck.text} imageLink={deck.imageLink} bgColor={deck.bgColor} link={deck.link} />
