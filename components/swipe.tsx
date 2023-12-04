@@ -81,11 +81,7 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
   
     return (
         <div id="swiper" className="py-20">
-          <div className="m-4">
-            <Link href="/">
-              <Button size="icon" variant="ghost"><ChevronLeftIcon/></Button>
-            </Link>
-          </div>
+
           <div className="m-4 ">
             
             <p className="swiper-slide text-center space-x-24" style={{fontWeight: 'bold', fontSize: '24px'}}>
@@ -109,10 +105,10 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
             <Button variant="ghost" onClick={goBack}>
             <Image src="/leftArrow.svg" alt="Logo" width={30} height={100}/>
             </Button>
-            <Image src="/next.svg" alt="Logo" width={70} height={100}/>  
+            <Image src="/back.svg" alt="Logo" width={70} height={100}/>  
         </div>
         <div className='flex'>
-        <Image src="/back.svg" alt="Logo" width={75} height={100}/>  
+        <Image src="/next.svg" alt="Logo" width={75} height={100}/>  
             <Button variant="ghost" onClick={goNext}>
             <Image src="/rightArrow.svg" alt="Logo" width={30} height={100}/>
             </Button>
