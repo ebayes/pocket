@@ -4,6 +4,7 @@
  
 @layer base {
   :root {
+    font-family: 'Glacial Indifference', sans-serif;
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -36,6 +37,7 @@
   }
  
   .dark {
+    font-family: 'Glacial Indifference', sans-serif;
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
  
@@ -75,13 +77,6 @@
   }
 }
 
-body {
-  cursor: url('/cursor.png'),auto;
-}
-
-a:hover {
-  cursor: url('/cursor2.png'), auto;
-}
 
 #app {
   height: 100%;
@@ -89,7 +84,6 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
-
 
 
 .swiper-slide {
@@ -101,4 +95,12 @@ a:hover {
   color: #000; /* Change text color to black for better contrast with white background */
   background-color: #fff; /* Change background color to white */
  /* Add 8px border with color #FF6333 */
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('/fonts/GlacialIndifference-Regular.otf') format('opentype'),
+       url('/fonts/GlacialIndifference-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }

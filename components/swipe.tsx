@@ -11,6 +11,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import Link from "next/link"
+import { Text } from '@radix-ui/themes';
 
 interface MyComponentProps {
   data: { title: string, image: string, text: string }[];
@@ -31,11 +32,13 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
       >
         {data.map((slide, index) => (
           <SwiperSlide key={index} style={{ border: `8px solid ${borderColor}`, borderRadius: '18px' }}>
-            <div className="flex flex-col justify-center items-center h-full space-y-5 px-5">
-              <Image src={slide.image} alt="Logo" width={100} height={100}/>
-              <p className="text-center text-[16px]">{slide.text}</p>
-            </div>
-          </SwiperSlide>
+  <div className="relative h-full">
+    <Image src={slide.image} alt="Logo" width={40} height={40} className="absolute top-7 left-7"/>
+    <div className="flex flex-col justify-center items-center h-full space-y-5 px-5 pt-20">
+      <p className="text-center pb-16 text-[20px]">{slide.text}</p>
+    </div>
+  </div>
+</SwiperSlide>
         ))}
       </Swiper>
     );
@@ -101,14 +104,14 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
             <MyComponent data={data} borderColor={borderColor} onSlideChange={setTitle} swiperRef={swiperRef} />
           </div>
           <div id="buttons" className='flex justify-center space-x-24'>
-          <div className='flex'>
+          <div className='flex items-center'>
             <Button variant="ghost" onClick={goBack}>
             <Image src="/leftArrow.svg" alt="Logo" width={30} height={100}/>
             </Button>
-            <Image src="/back.svg" alt="Logo" width={70} height={100}/>  
+            <Text className="text-2xl font-bold">Back</Text>
         </div>
-        <div className='flex'>
-        <Image src="/next.svg" alt="Logo" width={75} height={100}/>  
+        <div className='flex items-center'>
+        <Text className="text-2xl font-bold">Next</Text> 
             <Button variant="ghost" onClick={goNext}>
             <Image src="/rightArrow.svg" alt="Logo" width={30} height={100}/>
             </Button>

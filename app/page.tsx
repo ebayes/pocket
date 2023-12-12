@@ -2,12 +2,12 @@ import Deck from "@/components/card"
 
 export default function IndexPage() {
   const decks = [
-    { text: "In the woods", imageLink: "/minion1.svg", bgColor: "#3496A7", link: "/woods" },
-    { text: "In the kitchen", imageLink: "/minion2.svg", bgColor: "#9360A1", link: "/kitchen" },
-    { text: "Becoming you", imageLink: "/minion3.svg", bgColor: "#FFBC34", link: "/becoming-you" },
-    { text: "Being you", imageLink: "/minion4.svg", bgColor: "#FF6333", link: "/being-you" },
-    { text: "All your rhythms", imageLink: "/minion5.svg", bgColor: "#F69FAC", link: "/all-your-rhythms" },
-    { text: "How to guide", imageLink: "/minion6.svg", bgColor: "#88AC68", link: "/how-to-guide" },
+    { text: "In The Woods", imageLink: "/minion1.svg", bgColor: "#3496A7", link: "/woods" },
+    { text: "In The Kitchen", imageLink: "/minion2.svg", bgColor: "#9360A1", link: "/kitchen" },
+    { text: "Becoming You", imageLink: "/minion3.svg", bgColor: "#FFBC34", link: "/becoming-you" },
+    { text: "Being You", imageLink: "/minion4.svg", bgColor: "#FF6333", link: "/being-you" },
+    { text: "All Your Rhythms", imageLink: "/minion5.svg", bgColor: "#F69FAC", link: "/all-your-rhythms" },
+    { text: "How To Guide", imageLink: "/minion6.svg", bgColor: "#88AC68", link: "/how-to-guide" },
   ];
   
   return (
