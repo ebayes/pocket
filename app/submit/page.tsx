@@ -60,7 +60,7 @@ export default function IndexPage() {
       <div className="fixed inset-0 flex items-center justify-center z-10" style={{ opacity: cardVisible ? 1 : 0, transition: 'opacity 1s' }}>
       <Card className={`flex flex-col w-[95vw] sm:w-[50vw] h-[${isMobile ? '60vh' : '50vh'}] translate-y-10 bg-white bg-opacity-95`}>
       <CardHeader>
-        <CardTitle className="flex justify-center">Reach Out</CardTitle>
+        <CardTitle className="flex justify-center">Reach Out!</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-grow flex-col">
       <div className="flex items-center space-x-2">
