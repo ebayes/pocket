@@ -17,6 +17,7 @@ import { CopyIcon } from "@radix-ui/react-icons"
 import { Text, Heading } from '@radix-ui/themes';
 
 export function SiteHeader() {
+  
   return (
     <header className="sticky top-0 z-40 w-full">
       <div className="flex pl-5 pr-3 sm:pl-14 sm:pr-12 h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
@@ -24,7 +25,7 @@ export function SiteHeader() {
       <Link href="/">
         <div className="flex gap-5">
         <Image src="/favicon.svg" alt="Logo" width={40} height={50}/>
-        <Heading className="text-3xl font-bold">POCKET QUESTION</Heading>
+        <Heading className="text-3xl font-bold sm:block hidden">POCKET QUESTION</Heading>
         </div>
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-4">
