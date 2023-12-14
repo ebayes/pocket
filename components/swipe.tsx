@@ -52,13 +52,14 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
   export default function SwipeComponent({ data, borderColor }: SwipeComponentProps) {
     const [title, setTitle] = useState(data[0].title);
     const swiperRef = useRef<SwiperType | null>(null);
+    const [activeIndex, setActiveIndex] = useState(0); // Add this state
   
     const goNext = () => {
       if (swiperRef.current) {
         swiperRef.current.slideNext();
       }
     };
-    
+  
     const goBack = () => {
       if (swiperRef.current) {
         swiperRef.current.slidePrev();
@@ -73,52 +74,53 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
           goNext();
         }
       };
-    
+  
       window.addEventListener('keydown', handleKeyDown);
-    
+  
       // Cleanup function to remove the event listener when the component unmounts
       return () => {
         window.removeEventListener('keydown', handleKeyDown);
       };
     }, []); // Empty dependency array ensures this effect runs only once on mount
   
+    // Update the activeIndex state whenever the slide changes
+    const handleSlideChange = (title: string) => {
+      setTitle(title);
+      if (swiperRef.current) {
+        setActiveIndex(swiperRef.current.activeIndex);
+      }
+    };
+  
     return (
-<div id="swiper" className="py-10 sm:py-20">
-
-<div className="m-4 sm:m-0">
-            
-            <p className="swiper-slide text-center space-x-24" style={{fontWeight: 'bold', fontSize: '24px'}}>
+      <div id="swiper" className="py-10 sm:py-20">
+        {/* ... */}
+        <div className="m-4">
+        <p className="swiper-slide text-center space-x-24 pb-3" style={{fontWeight: 'bold', fontSize: '24px'}}>
             <Link href="/">
             <Button variant="ghost">
-            <Image src="/leftArrowGray.svg" alt="Logo" width={30} height={100}/>
+            <Image src="/leftArrow.svg" alt="Logo" width={30} height={100}/>
             </Button>
             </Link>
                 {title}
                 
-          
-     
                 
             </p>
-          </div>
-          <div className="m-4">
-            <MyComponent data={data} borderColor={borderColor} onSlideChange={setTitle} swiperRef={swiperRef} />
-          </div>
-          <div id="buttons" className='flex justify-center space-x-24'>
+          <MyComponent data={data} borderColor={borderColor} onSlideChange={handleSlideChange} swiperRef={swiperRef} />
+        </div>
+        <div id="buttons" className='flex justify-center space-x-24'>
           <div className='flex items-center'>
-            <Button variant="ghost" onClick={goBack}>
-            <Image src="/leftArrow.svg" alt="Logo" width={30} height={100}/>
+            <Button variant="ghost" onClick={goBack} disabled={activeIndex === 0}>
+              <Image src="/leftArrow.svg" alt="Logo" width={30} height={100}/>
             </Button>
             <Text className="text-2xl font-bold">Back</Text>
-        </div>
-        <div className='flex items-center'>
-        <Text className="text-2xl font-bold">Next</Text> 
-            <Button variant="ghost" onClick={goNext}>
-            <Image src="/rightArrow.svg" alt="Logo" width={30} height={100}/>
+          </div>
+          <div className='flex items-center'>
+            <Text className="text-2xl font-bold">Next</Text> 
+            <Button variant="ghost" onClick={goNext} disabled={activeIndex === data.length - 1}>
+              <Image src="/rightArrow.svg" alt="Logo" width={30} height={100}/>
             </Button>
-            
-        </div>
-
           </div>
         </div>
-      )
+      </div>
+    )
   }
