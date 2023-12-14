@@ -25,27 +25,7 @@ export default function IndexPage() {
   const [allMinionsLoaded, setAllMinionsLoaded] = useState(false);
   const [cardVisible, setCardVisible] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
-  const [messageSent, setMessageSent] = useState(false);
-
-  const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm(
-      process.env.YOUR_SERVICE_ID, 
-      process.env.YOUR_TEMPLATE_ID, 
-      form.current, 
-      process.env.YOUR_PUBLIC_KEY
-    )
-    .then((result) => {
-        console.log(result.text);
-        setMessageSent(true);
-    }, (error) => {
-        console.log(error.text);
-    });
-  };
-  
+ 
 
   useEffect(() => {
     if (allMinionsLoaded) {
@@ -79,7 +59,7 @@ export default function IndexPage() {
       </div>
       {cardVisible && (
       <div className="fixed inset-0 flex items-center justify-center z-10" style={{ opacity: cardVisible ? 1 : 0, transition: 'opacity 1s' }}>
-            <form ref={form} onSubmit={sendEmail}>
+            
       <Card className={`flex flex-col w-[95vw] sm:w-[50vw] h-[${isMobile ? '60vh' : '50vh'}] translate-y-10 bg-white bg-opacity-95`}>
       <CardHeader>
         <CardTitle className="flex justify-center">Reach Out!</CardTitle>
@@ -108,12 +88,12 @@ This pocket book was written and designed by <Link className="underline" target=
       </CardContent>
       <CardFooter>
       <Button variant="custom" className="w-full" type="submit" value="Send">
-  {messageSent ? <><CheckIcon className="mr-2 h-4 w-4" /> Sent</> : 'Submit'}
+  <CheckIcon className="mr-2 h-4 w-4" /> Sent
 </Button>
       </CardFooter>
     </Card>
 
-    </form>
+ 
   </div>
 )}
     </section>
