@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import Link from "next/link"
 import { Text } from '@radix-ui/themes';
+import { useMediaQuery } from 'react-responsive'
+
 
 interface MyComponentProps {
   data: { title: string, image: string, text: string }[];
@@ -21,6 +23,8 @@ interface MyComponentProps {
 }
 
 export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyComponentProps) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+
     return (
         <Swiper
         effect={'cards'}
@@ -35,7 +39,8 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
   <div className="relative h-full">
     <Image src={slide.image} alt="Logo" width={40} height={40} className="absolute top-7 left-7"/>
     <div className="flex flex-col justify-center items-center h-full space-y-5 px-5 pt-20">
-      <p className="text-center pb-16 text-[20px]">{slide.text}</p>
+     
+      <p className={`text-center pb-16 ${isMobile ? 'text-[18px]' : 'text-[20px]'}`}>{slide.text}</p>
     </div>
   </div>
 </SwiperSlide>
@@ -52,7 +57,10 @@ export const MyComponent = ({ data, borderColor, onSlideChange, swiperRef }: MyC
   export default function SwipeComponent({ data, borderColor }: SwipeComponentProps) {
     const [title, setTitle] = useState(data[0].title);
     const swiperRef = useRef<SwiperType | null>(null);
-    const [activeIndex, setActiveIndex] = useState(0); // Add this state
+    const [activeIndex, setActiveIndex] = useState(0); 
+    const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+
+    
   
     const goNext = () => {
       if (swiperRef.current) {
